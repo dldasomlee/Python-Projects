@@ -1,0 +1,228 @@
+# Implement a random forest
+# Use sklearn to construct a random forest and generate cross validated predictions on the dataset
+
+from sklearn import cross_validation
+from sklearn.ensemble import RandomForestClassifier
+
+predictors = ["Pclass", "Sex", "Age", "SibSp", "Parch", "Fare", "Embarked"]
+
+# Initialize the algorithm with the default paramters
+# n_estimators is the number of trees I want to make
+# min_samples_split is the minimum number of rows I need to make a split
+# min_samples_leaf is the minimum number of samples I can have at the place where a tree branch ends 
+
+alg = RandomForestClassifier(random_state=1, n_estimators=10, min_samples_split=2, min_samples_leaf=1)
+
+# Compute the accuracy score for all the cross validation folds  
+
+kf = cross_validation.KFold(titanic.shape[0], n_folds=3, random_state=1)
+scores = cross_validation.cross_val_score(alg, titanic[predictors], titanic["Survived"], cv=kf)
+
+# Take the mean of the scores
+
+print(scores.mean())
+
+# output is 0.785634118967
+
+# Parameter Tuning
+# Let's increase the number of trees to improve the accuracy
+
+alg = RandomForestClassifier(random_state=1, n_estimators=50, min_samples_split=4, min_samples_leaf=2)
+
+# Compute the accuracy score for all the cross validation folds
+
+kf = cross_validation.KFold(titanic.shape[0], 3, random_state=1)
+scores = cross_validation.cross_val_score(alg, titanic[predictors], titanic["Survived"], cv=kf)
+
+# Take the mean of the scores 
+
+print(scores.mean())
+
+# output this time is 0.81593714927
+
+# Let's generate new features using 1) the length of the name and 2) the total number of people in a family
+
+titanic["FamilySize"] = titanic["SibSp"] + titanic["Parch"]
+titanic["NameLength"] = titanic["Name"].apply(lambda x: len(x))
+
+# Extract the title of the passenger from their name
+
+import re
+
+# A function to get the title from a name
+
+def get_title(name):
+    title_search = re.search(' ([A-Za-z]+)\.', name)
+    if title_search:
+        return title_search.group(1)
+    return ""
+
+titles = titanic["Name"].apply(get_title)
+print(pandas.value_counts(titles))
+
+# Map each title to an integer.  Some titles are very rare, and are compressed into the same codes as other titles.
+title_mapping = {"Mr": 1, "Miss": 2, "Mrs": 3, "Master": 4, "Dr": 5, "Rev": 6, "Major": 7, "Col": 7, "Mlle": 8, "Mme": 8, "Don": 9, "Lady": 10, "Countess": 10, "Jonkheer": 10, "Sir": 9, "Capt": 7, "Ms": 2}
+for k,v in title_mapping.items():
+    titles[titles == k] = v
+
+print(pandas.value_counts(titles))
+
+titanic["Title"] = titles
+
+# Also let's generate a feature indicating which family people are in
+
+import operator
+
+# A dictionary mapping family name to id
+
+family_id_mapping = {}
+
+def get_family_id(row):
+    last_name = row["Name"].split(",")[0]
+    family_id = "{0}{1}".format(last_name, row["FamilySize"])
+    if family_id not in family_id_mapping:
+        if len(family_id_mapping) == 0:
+            current_id = 1
+        else:
+            current_id = (max(family_id_mapping.items(), key=operator.itemgetter(1))[1] + 1)
+        family_id_mapping[family_id] = current_id
+    return family_id_mapping[family_id]
+
+family_ids = titanic.apply(get_family_id, axis=1)
+
+# compress all of the families under 3 members into one code
+
+family_ids[titanic["FamilySize"] < 3] = -1
+
+print(pandas.value_counts(family_ids))
+
+titanic["FamilyId"] = family_ids
+
+# Use univariate feature selection to find the best feature
+
+import numpy as np
+from sklearn.feature_selection import SelectKBest, f_classif
+
+predictors = ["Pclass", "Sex", "Age", "SibSp", "Parch", "Fare", "Embarked", "FamilySize", "Title", "FamilyId", "NameLength"]
+
+# Perform feature selection
+
+selector = SelectKBest(f_classif, k=5)
+selector.fit(titanic[predictors], titanic["Survived"])
+
+# Get the raw p-values for each feature, and transform from p-values into scores
+
+scores = -np.log10(selector.pvalues_)
+
+plt.bar(range(len(predictors)), scores)
+plt.xticks(range(len(predictors)), predictors, rotation='vertical')
+plt.show()
+
+# Pick only the four best features
+predictors = ["Pclass", "Sex", "Fare", "Title"]
+
+alg = RandomForestClassifier(random_state=1, n_estimators=50, min_samples_split=8, min_samples_leaf=4)
+
+# Compute the accuracy score for all the cross validation folds
+
+scores = cross_validation.cross_val_score(alg, titanic[predictors], titanic["Survived"], cv=3)
+
+print(scores.mean())
+
+# Output is 0.817059483726
+
+# Let's ensemble logistic regression trained on the most linear predictors and a gradient boosted tree trained on all of the predictors
+
+from sklearn.ensemble import GradientBoostingClassifier
+import numpy as np
+
+algorithms = [
+    [GradientBoostingClassifier(random_state=1, n_estimators=25, max_depth=3), ["Pclass", "Sex", "Age", "Fare", "Embarked", "FamilySize", "Title", "FamilyId"]],
+    [LogisticRegression(random_state=1), ["Pclass", "Sex", "Fare", "FamilySize", "Title", "Age", "Embarked"]]
+]
+
+kf = KFold(titanic.shape[0], n_folds=3, random_state=1)
+
+predictions = []
+for train, test in kf:
+    train_target = titanic["Survived"].iloc[train]
+    full_test_predictions = []
+
+    for alg, predictors in algorithms:
+        alg.fit(titanic[predictors].iloc[train,:], train_target)
+        test_predictions = alg.predict_proba(titanic[predictors].iloc[test,:].astype(float))[:,1]
+        full_test_predictions.append(test_predictions)
+        
+    # Use a simple ensembling scheme -- just average the predictions to get the final classification
+    
+    test_predictions = (full_test_predictions[0] + full_test_predictions[1]) / 2
+    
+    # Any value over .5 is assumed to be a 1 prediction, and below .5 is a 0 prediction
+    
+    test_predictions[test_predictions <= .5] = 0
+    test_predictions[test_predictions > .5] = 1
+    predictions.append(test_predictions)
+
+# Put all the predictions together into one array
+
+predictions = np.concatenate(predictions, axis=0)
+
+# Compute accuracy by comparing to the training data
+
+accuracy = sum(predictions[predictions == titanic["Survived"]]) / len(predictions)
+print(accuracy)
+
+# Output is 0.819304152637
+
+# Let's generate the NameLength column, familySize column, add in the Title column, and add in a FamilyId column
+
+titles = titanic_test["Name"].apply(get_title)
+title_mapping = {"Mr": 1, "Miss": 2, "Mrs": 3, "Master": 4, "Dr": 5, "Rev": 6, "Major": 7, "Col": 7, "Mlle": 8, "Mme": 8, "Don": 9, "Lady": 10, "Countess": 10, "Jonkheer": 10, "Sir": 9, "Capt": 7, "Ms": 2, "Dona": 10}
+for k,v in title_mapping.items():
+    titles[titles == k] = v
+titanic_test["Title"] = titles
+
+# Check the counts of each unique title
+
+print(pandas.value_counts(titanic_test["Title"]))
+
+# Add the family size column
+
+titanic_test["FamilySize"] = titanic_test["SibSp"] + titanic_test["Parch"]
+
+# Add family ids
+
+print(family_id_mapping)
+
+family_ids = titanic_test.apply(get_family_id, axis=1)
+family_ids[titanic_test["FamilySize"] < 3] = -1
+titanic_test["FamilyId"] = family_ids
+titanic_test["NameLength"] = titanic_test["Name"].apply(lambda x: len(x))
+
+# Predicting on the test run
+
+predictors = ["Pclass", "Sex", "Age", "Fare", "Embarked", "FamilySize", "Title", "FamilyId"]
+
+algorithms = [
+    [GradientBoostingClassifier(random_state=1, n_estimators=25, max_depth=3), predictors],
+    [LogisticRegression(random_state=1), ["Pclass", "Sex", "Fare", "FamilySize", "Title", "Age", "Embarked"]]
+]
+
+full_predictions = []
+for alg, predictors in algorithms:
+    alg.fit(titanic[predictors], titanic["Survived"])
+    predictions = alg.predict_proba(titanic_test[predictors].astype(float))[:,1]
+    full_predictions.append(predictions)
+
+# The gradient boosting classifier generates better predictions, so weight it higher
+
+predictions = (full_predictions[0] * 3 + full_predictions[1]) / 4
+predictions[predictions <= .5] = 0
+predictions[predictions > .5] = 1
+predictions = predictions.astype(int)
+submission = pandas.DataFrame({
+        "PassengerId": titanic_test["PassengerId"],
+        "Survived": predictions
+    })
+    
+# Output is 0.799
