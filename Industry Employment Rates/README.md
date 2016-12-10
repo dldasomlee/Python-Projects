@@ -1,5 +1,5 @@
 #Low-Wage Job Rates
-I am trying to figure out the percentage of recent graduates who took on a low wage job after finishing colleges using pandas and compare the data sets.ss
+I am trying to figure out the percentage of recent graduates who took on a low wage job after finishing colleges using pandas and compare the data sets.
 
 ##Data
 Grabbed data from [this](https://github.com/fivethirtyeight/data/tree/master/college-majors) repo originally.
