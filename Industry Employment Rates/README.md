@@ -7,4 +7,4 @@ I will be using,
 - all-ages.csv: Employment data by major for all ages
 - recent-grads.csv: Employment data by major for recent college graduates only
 
-The U.S. Census Bureau, American Community Survey, collected data and amongst the number of data sets, [FiveThirtyEight](https://github.com/fivethirtyeight) cleased the 2010-2012 American Community Surveys and made it available in a Github repository.
+The U.S. Census Bureau, American Community Survey, collected data and amongst the number of data sets, [FiveThirtyEight](https://github.com/fivethirtyeight) cleaned the 2010-2012 American Community Surveys and made it available in a Github repository.
