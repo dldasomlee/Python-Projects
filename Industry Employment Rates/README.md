@@ -8,3 +8,6 @@ I will be using,
 - recent-grads.csv: Employment data by major for recent college graduates only
 
 The U.S. Census Bureau, American Community Survey, collected data and amongst the number of data sets, [FiveThirtyEight](https://github.com/fivethirtyeight) cleaned the 2010-2012 American Community Surveys and made it available in a Github repository.
+
+##Findings
+43/173 recent graduates had lower unemployment rates than others 
