@@ -8,3 +8,15 @@ from 1970 to 2012. The data set is broken up into 17 categories of degrees. It i
 
 I will be using,
 - percent-bachelors-degrees-women-usa.csv
+
+##Findings
+- Comparison on STEMs
+  - Gender gaps in CS and Engineering are bigger and dominated more by men 
+  - Gender gaps in Biology and Math and Statistics are smaller and balanced
+  
+- Comparison on 6 degrees, Engineering, Computer Science, Psychology, Biology, Physical Sciences, and Math and Statistics
+  - Degrees where women dominate are psychology 
+  - Degrees where men dominate are Engineering, CS, Physical Sciences, Math and Statistics
+  - Big gaps in gender are Engineering, CS, Psychology
+  - Gender gaps are decreasing are Biology and Physial Sciences 
+  - Math and Statistics are balanced
