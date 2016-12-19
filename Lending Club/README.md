@@ -10,26 +10,26 @@ I am going to be looking at 2007~2011 data to make sure loans are finished,
 
 ##Findings:
 - Deleted columns
-  - id: randomly generated field by Lending Club for unique identification purposes only
-  - member_id: also a randomly generated field by Lending Club for unique identification purposes only
-  - funded_amnt: leaks data from the future (after the loan is already started to be funded)
-  - funded_amnt_inv: also leaks data from the future (after the loan is already started to be funded)
-  - grade: contains redundant information as the interest rate column (int_rate)
-  - sub_grade: also contains redundant information as the interest rate column (int_rate)
-  - emp_title: requires other data and a lot of processing to potentially be useful
-  - issue_d: leaks data from the future (after the loan is already completed funded)
-  - zip_code: redundant with the addr_state column since only the first 3 digits of the 5 digit zip code are visible (which only can be   - used to identify the state the borrower lives in)
-  - out_prncp: leaks data from the future, (after the loan already started to be paid off)
-  - out_prncp_inv: also leaks data from the future, (after the loan already started to be paid off)
-  - total_pymnt: also leaks data from the future, (after the loan already started to be paid off)
-  - total_pymnt_inv: also leaks data from the future, (after the loan already started to be paid off)
-  - total_rec_prncp: also leaks data from the future, (after the loan already started to be paid off)
-  - total_rec_int: leaks data from the future, (after the loan already started to be paid off),
-  - total_rec_late_fee: also leaks data from the future, (after the loan already started to be paid off),
-  - recoveries: also leaks data from the future, (after the loan already started to be paid off),
-  - collection_recovery_fee: also leaks data from the future, (after the loan already started to be paid off),
-  - last_pymnt_d: also leaks data from the future, (after the loan already started to be paid off),
-  - last_pymnt_amnt: also leaks data from the future, (after the loan already started to be paid off).
+  - id: randomly generated number
+  - member_id: randomly generated number
+  - funded_amnt: leaks data from the future 
+  - funded_amnt_inv: also leaks data from the future 
+  - grade: contains redundant information 
+  - sub_grade: also contains redundant information
+  - emp_title: requires other data 
+  - issue_d: leaks data from the future 
+  - zip_code: redundant with the addr_state column 
+  - out_prncp: leaks data from the future
+  - out_prncp_inv: also leaks data from the future
+  - total_pymnt: also leaks data from the future
+  - total_pymnt_inv: also leaks data from the future
+  - total_rec_prncp: also leaks data from the future
+  - total_rec_int: leaks data from the future
+  - total_rec_late_fee: also leaks data from the future
+  - recoveries: also leaks data from the future
+  - collection_recovery_fee: also leaks data from the future
+  - last_pymnt_d: also leaks data from the future
+  - last_pymnt_amnt: also leaks data from the future
 
 - Achieved a true positive rate of 20% and a false positive rate of 7%. Investors can make money if the interest rate is high enough to offset the losses from 7% of borrowers defaulting, and 20% of borrowers is large enough to make enough interest money to offset the losses
   - By lowering a FPR, risk also lowered;however, it also means loosing a chance to make more loans 
