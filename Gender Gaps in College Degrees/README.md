@@ -22,12 +22,12 @@ I will be using,
   - Math and Statistics are balanced
 
 - Comparison on 17 degrees, 
-STEMs = ['Psychology', 'Biology', 'Math and Statistics', 'Physical Sciences', 'Computer Science', 'Engineering', 'Computer Science']
-Liberal Arts = ['Foreign Languages', 'English', 'Communications and Journalism', 'Art and Performance', 'Social Sciences and History']
-Other degrees = ['Health Professions', 'Public Administration', 'Education', 'Agriculture','Business', 'Architecture']
-  - Degrees that men dominated are: Engineering, CS, Physical Sciences, Architecture. (3/4 from STEMs) 
-  - Degrees that women dominated are: Biology, Psychology, Foreign Languages, Health Professions, English, Public Administration,         
-    Eduation, Communications and Journalism, Art and performance 
-  - Degrees that showed a balanced gap (almost no gap) are: Social Sciences and History, Business, Agriculture, Math and Statistics 
+  - STEMs = ['Psychology', 'Biology', 'Math and Statistics', 'Physical Sciences', 'Computer Science', 'Engineering', 'Computer Science']
+  - Liberal Arts = ['Foreign Languages', 'English', 'Communications and Journalism', 'Art and Performance', 'Social Sciences and History']
+  - Other degrees = ['Health Professions', 'Public Administration', 'Education', 'Agriculture','Business', 'Architecture']
+   
+    - Degrees that men dominated are: Engineering, CS, Physical Sciences, Architecture. (3/4 from STEMs) 
+    - Degrees that women dominated are: Biology, Psychology, Foreign Languages, Health Professions, English, Public Administration, Eduation, Communications and Journalism, Art and performance 
+    - Degrees that showed a balanced gap (almost no gap) are: Social Sciences and History, Business, Agriculture, Math and Statistics 
 
 It is clear that while most STEMs are dominated by men, the rest of degrees are dominated by women. 
