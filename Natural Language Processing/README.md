@@ -13,7 +13,7 @@ Also, going to include only 4 columns below to make the learning simpler,
 - headline 
 
 ##Findings
-Used mean squared error(MSE) as an error metric and achieved approx. 2324 which I don't consider it as a good error rate. 
+Used mean squared error as an error metric and achieved approx. 2324 which I don't consider it as a good error rate. 
 Maybe, I can implement a few ways to reduce the error rate. For example,
 - Use larger data set
 - Use random forest or other machine learning algorithms
