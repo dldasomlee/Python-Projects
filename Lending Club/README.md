@@ -31,6 +31,7 @@ I am going to be looking at 2007~2011 data to make sure loans are finished,
   - last_pymnt_d: also leaks data from the future
   - last_pymnt_amnt: also leaks data from the future
 
+[NOTE: Revision going on the conclusion part]
 - Achieved a true positive rate of 20% and a false positive rate of 7%. Investors can make money if the interest rate is high enough to offset the losses from 7% of borrowers defaulting, and 20% of borrowers is large enough to make enough interest money to offset the losses
   - By lowering a FPR, risk also lowered;however, it also means loosing a chance to make more loans 
 
