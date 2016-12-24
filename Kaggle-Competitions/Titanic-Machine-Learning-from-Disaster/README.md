@@ -10,5 +10,5 @@
 - kaggle.csv
 - kaggle_2.csv (with improved accuracy version)
 
-## Code in Jupytor,
+## Code in Jupyter,
 - Titanic.ipynb
