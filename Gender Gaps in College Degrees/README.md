@@ -16,7 +16,7 @@ Comparison on STEMs
   - Gender gaps in CS and Engineering are large and dominated more by men than women
   - Gender gaps in Biology and Math and Statistics are small and almost even
   
-2)  
+2)
 Comparison on 6 degrees: Engineering, Computer Science, Psychology, Biology, Physical Sciences, and Math and Statistics
   - Degree that women dominate is psychology 
   - Degrees that men dominate are Engineering, CS, Physical Sciences, Math and Statistics
