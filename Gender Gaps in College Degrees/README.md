@@ -1,5 +1,5 @@
 #Visualization of Gender Gaps in STEM, Liberal Arts, and other degrees
-First, I am trying to figure out in which STEM major, fe/male gender dominates or they look even (as in there's not so much difference between genders).
+First, I am trying to figure out in which STEM major, fe/male gender dominates or they look even (as in there's not so much gap difference between genders).
 Then, I am going to include all 17 degrees to show comparison as a whole.
 
 ##Data
