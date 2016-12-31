@@ -1,5 +1,5 @@
 #A Machine Learning Model that predicts whether a borrower will pay off his/her loan on time
-I am trying to figure out which borrower will pay his/her loan and return the investment. Based on the perspective of conservative investor, I will aim to build a machine learning model that helps investor make a decision to lend loans (to a person who is likely to pay off).
+I am trying to figure out which borrower will pay his/her loan and return the investment. Based on the perspective of conservative investor, I will aim to build a machine learning model that helps investors make a decision to lend loans (to a person who is likely to pay off).
 
 ##Data
 I am grabbing data from [Lending Money](https://www.lendingclub.com/public/how-peer-lending-works.action), which is an online credit market place that enables investors receive interest as a return.
