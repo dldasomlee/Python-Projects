@@ -12,19 +12,14 @@ I will be using,
 ##Findings
 
 1)
-Comparison on STEMs
-  - Gender gaps in CS and Engineering are large and dominated more by men than women
-  - Gender gaps in Biology and Math and Statistics are small and almost even
-  
-2)
-Comparison on 6 degrees: Engineering, Computer Science, Psychology, Biology, Physical Sciences, and Math and Statistics
+Comparison on STEMs: Engineering, Computer Science, Psychology, Biology, Physical Sciences, and Math and Statistics
   - Degree that women dominate is psychology 
   - Degrees that men dominate are Engineering, CS, Physical Sciences, Math and Statistics
   - Degrees that show large gender gaps are Engineering, CS, Psychology
   - As years passed by, gender gaps are becoming smaller (more even) in Biology and Physical Sciences 
   - Gender gaps in Math and Statistics look almost even
   
-3)
+2)
 Comparison on 17 degrees: 
   - STEMs = ['Psychology', 'Biology', 'Math and Statistics', 'Physical Sciences', 'Computer Science', 'Engineering', 'Computer Science']
   - Liberal Arts = ['Foreign Languages', 'English', 'Communications and Journalism', 'Art and Performance', 'Social Sciences and History']
