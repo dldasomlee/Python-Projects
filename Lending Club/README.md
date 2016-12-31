@@ -1,4 +1,4 @@
-#A Machine Learning Model that predicts whether a borrower will pay off their loan on time
+#A Machine Learning Model that predicts whether a borrower will pay off his/her loan on time
 I am trying to figure out which borrower will pay his/her loan and return the investment. Based on the perspective of conservative investor, I will aim to build a machine learning model that helps investor will make a decision to lend loans (and to a person who is likely to pay off).
 
 ##Data
