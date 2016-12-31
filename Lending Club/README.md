@@ -1,15 +1,14 @@
 #A Machine Learning Model that predicts whether a borrower will pay off their loan on time
-I am trying to figure out on the perspective of conservative investor, which borrower will pay his/her loan and return the investment. Based on this model, investor will make a decision to lend loans (and to a person who is likely to pay off).
+I am trying to figure out which borrower will pay his/her loan and return the investment. Based on the perspective of conservative investor, I will aim to build a machine learning model that helps investor will make a decision to lend loans (and to a person who is likely to pay off).
 
 ##Data
 I am grabbing data from [Lending Money](https://www.lendingclub.com/public/how-peer-lending-works.action), which is an online credit market place that enables investors receive interest as a return.
 I am going to be looking at 2007~2011 data to make sure loans are finished, 
 - [Data](https://www.lendingclub.com/info/download-data.action)
-- [Link](https://docs.google.com/spreadsheets/d/1YxDDHXkl3M4_axThL6leNqPtOdZFWw06ogOF5y9ycwE/edit?usp=sharing): reference sheet to column names. Only 'LoanStats' tab is considerable since it states approved loan datasets. *Important to understand the meaning of each*
+- [Link](https://docs.google.com/spreadsheets/d/1YxDDHXkl3M4_axThL6leNqPtOdZFWw06ogOF5y9ycwE/edit?usp=sharing): reference sheet to column names. Only 'LoanStats' tab is considerable since it states approved loan datasets. **It is important to understand the meaning of each name**
 - 'loan_status' tab meanings: reference to [here](https://help.lendingclub.com/hc/en-us/articles/215488038)
 
-##Findings:
-- Deleted columns
+##Deleted columns
   - id: randomly generated number
   - member_id: randomly generated number
   - funded_amnt: leaks data from the future 
@@ -31,7 +30,10 @@ I am going to be looking at 2007~2011 data to make sure loans are finished,
   - last_pymnt_d: also leaks data from the future
   - last_pymnt_amnt: also leaks data from the future
 
-[NOTE: Revision going on the conclusion part]
-- Achieved a true positive rate of 20% and a false positive rate of 7%. Investors can make money if the interest rate is high enough to offset the losses from 7% of borrowers defaulting, and 20% of borrowers is large enough to make enough interest money to offset the losses
-  - By lowering a FPR, risk also lowered;however, it also means loosing a chance to make more loans 
+##Process
+1. Data Cleaning: Prepare data on loans for predictive modeling
+2. Setting up the features: Explore data and prepare the features for modeling
+3. Predicting the moedles: Train, test, and iterate on machine learning models **IN PROGRESS**
 
+##Finding
+**IN PROGRESS**
