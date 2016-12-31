@@ -31,3 +31,8 @@ Comparison on 17 degrees:
 
 ## Conclusion
 It is clear that while most STEMs are dominated by men, the rest of degrees are most likely to be dominated by women
+
+##Improvement
+An advice I received was:
+I should try to make the code more efficient by using vector/array operations/DataFrame methods/helper functions from some of the libraries. As my codes include long loops, these can be replaced with one or two lines of succint codes using `cross_val_score` function to help readers read the lines of code betetr.
+
