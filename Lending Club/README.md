@@ -33,7 +33,7 @@ I am going to be looking at 2007~2011 data to make sure loans are finished,
 ##Process
 1. Data Cleaning: Prepare data on loans for predictive modeling
 2. Setting up the features: Explore data and prepare the features for modeling
-3. Predicting the moedles: Train, test, and iterate on machine learning models **IN PROGRESS**
+3. Predicting the models: Train, test, and iterate on machine learning models **IN PROGRESS**
 
 ##Finding
 **IN PROGRESS**
