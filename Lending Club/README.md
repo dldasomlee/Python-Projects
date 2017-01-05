@@ -2,7 +2,7 @@
 I am trying to figure out which borrower will pay his/her loan and return the investment. Based on the perspective of conservative investor, I will aim to build a machine learning model that helps investors make a decision to lend loans (to a person who is likely to pay off).
 
 ##Data
-I am grabbing data from [Lending Money](https://www.lendingclub.com/public/how-peer-lending-works.action), which is an online credit market place that enables investors receive interest as a return.
+I am grabbing data from [Lending Club](https://www.lendingclub.com/public/how-peer-lending-works.action), which is an online credit market place that enables investors receive interest as a return.
 I am going to be looking at 2007~2011 data to make sure loans are finished, 
 - [Data](https://www.lendingclub.com/info/download-data.action)
 - [Link](https://docs.google.com/spreadsheets/d/1YxDDHXkl3M4_axThL6leNqPtOdZFWw06ogOF5y9ycwE/edit?usp=sharing): reference sheet to column names. Only 'LoanStats' tab is considerable since it states approved loan datasets. **It is important to understand the meaning of each name**
